@@ -1,0 +1,33 @@
+add migration
+
+dotnet ef migrations add InitialCreate --project 'C:\PoC_details\DotnetCore\ShopBridge-Dev\src\Infrastructure\Infrastructure.csproj' -o 'C:\PoC_details\DotnetCore\ShopBridge-Dev\src\Infrastructure\Persistence\Migrations\'
+
+create changes in DB
+
+dotnet ef database update
+
+
+
+
+Href
+https://xunit.github.io/docs/comparisons.html
+
+https://www.youtube.com/watch?v=2UJ7mAtFuio&feature=youtu.be
+
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
+
+https://docs.microsoft.com/en-us/ef/core/miscellaneous/testing/sharing-databases
+
+
+// for code coverage in test project
+this package required.
+dotnet add package coverlet.msbuild
+// default run
+dotnet test /p:CollectCoverage=true
+
+// custom run
+dotnet test Insfrastructure.test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info
+
+// for watch mode
+dotnet watch --project Insfrastructure.test.csproj test Insfrastructure.test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info
